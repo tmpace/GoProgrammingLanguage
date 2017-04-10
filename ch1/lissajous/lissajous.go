@@ -1,5 +1,5 @@
-// Lissajous generates GIF animations of random Lissajous figures.
-package main
+// Package lissajous ...
+package lissajous
 
 import (
 	"image"
@@ -23,13 +23,9 @@ const (
 	blackIndex = 1 // next color in palette
 )
 
-// func main() {
-// 	lissaJous(os.Stdout)
-// }
-
-func lissaJous(out io.Writer) {
+// LissaJous generates GIF animations of random Lissajous figures.
+func LissaJous(out io.Writer, cycles int) {
 	const (
-		cycles  = 5     // number of complete x oscillator revolutions
 		res     = 0.001 // angular resolution
 		size    = 100   // image canvas covers [-size..+size]
 		nframes = 64    // number of animation frames
@@ -44,7 +40,7 @@ func lissaJous(out io.Writer) {
 		rect := image.Rect(0, 0, 2*size+1, 2*size+1)
 		img := image.NewPaletted(rect, palette)
 
-		for t := 0.0; t < cycles*2*math.Pi; t += res {
+		for t := 0.0; t < float64(cycles)*2*math.Pi; t += res {
 			var colorIndex uint8
 
 			if i%4 == 0 {
