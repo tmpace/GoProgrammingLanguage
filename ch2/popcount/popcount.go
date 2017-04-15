@@ -46,3 +46,15 @@ func PopCountShift(x uint64) int {
 
 	return result
 }
+
+// PopCountClear implements the same PopCount method with clearing bits
+func PopCountClear(x uint64) int {
+	result := 0
+
+	for x != 0 {
+		x = x & (x - 1)
+		result++
+	}
+
+	return result
+}
