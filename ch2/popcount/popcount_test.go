@@ -19,3 +19,9 @@ func BenchmarkPopCountShift(b *testing.B) {
 		PopCountShift(uint64(i))
 	}
 }
+
+func BenchmarkPopcountClear(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PopCountClear(uint64(i))
+	}
+}
