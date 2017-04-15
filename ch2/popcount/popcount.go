@@ -32,3 +32,17 @@ func PopCountLoop(x uint64) int {
 
 	return result
 }
+
+// PopCountShift implements the same PopCount method with bit shifting
+func PopCountShift(x uint64) int {
+	var i uint
+	result := 0
+
+	for ; i < 64; i++ {
+		if (x>>i)&1 == 1 {
+			result++
+		}
+	}
+
+	return result
+}
