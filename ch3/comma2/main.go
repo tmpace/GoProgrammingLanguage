@@ -29,8 +29,6 @@ func comma(s string) string {
 
 	var buf bytes.Buffer
 
-	fmt.Println(s)
-
 	for i, v := range s {
 		buf.WriteRune(v)
 		if i != len(s)-1 && len(s[i+1:])%3 == 0 {
@@ -40,7 +38,3 @@ func comma(s string) string {
 
 	return sign + buf.String() + decValues
 }
-
-// 1234
-
-// 1. buf = "1", len(234) % 3 = 0, buf = "1,"
